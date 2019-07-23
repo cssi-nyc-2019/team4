@@ -15,6 +15,7 @@ jinja_current_directory = jinja2.Environment(
 # the handler section
 class MainHandler(webapp2.RequestHandler):
   def get(self):  # for a get request
+
 	login_template=jinja_current_directory.get_template("pages/loginPage.html")
    self.response.write(login_template.render())
 
