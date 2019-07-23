@@ -14,12 +14,22 @@ the_jinja_env = jinja2.Environment(
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
-  def get(self):  # for a get request
-    self.response.write('Greetings')  # the response
+	def get(self):  # for a get request
+		self.response.write('Greetings')  # the response
+
+class LoginPage(webapp2.RequestHandler):
+	def get(self):
+		login_template = the_jinja_env.get_template('templates/loginPage.html')
+		self.response.write('LoginPage')
+
+class SignupPage(webapp2.RequestHandler):
+	def get(self):
+		
 
 
 # the app configuration section	
 app = webapp2.WSGIApplication([
-  #('/', MainPage),
+  ('/',SignupPage),
+  ('/', LoginPage),
   ('/', MainHandler),
   ], debug=True)
