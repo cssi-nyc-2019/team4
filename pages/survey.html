@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+	
+	
+</head>
+<body>
+
+<div class="header">
+    <div>
+      <!--<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/BuzzFeed.svg/1280px-BuzzFeed.svg.png"></div>
+    <div>
+      <a href= "https://www.buzzfeednews.com/">News</a>
+    </div>
+    <div>
+      <a href= "https://www.buzzfeed.com/videos">Videos</a>
+    </div>
+    <div>
+      <a href= "https://www.buzzfeed.com/quizzes">Quizzes</a>
+    </div>
+    <div>
+      <a href= "https://www.buzzfeed.com/tasty">Tasty</a>
+    </div>
+    <div>
+      <input placeholder="Search Buzzfeed">
+    </div>
+  </div>
+  <h1>What Superhero Team Universe Are You Apart Of? Marvel? DC?</h1>
+  <p id="caption"> Both Teams Are Awesome. Find Out Which One You Belong To! </p>
+  
+  
+  <img class="battle" src="https://pre00.deviantart.net/7e10/th/pre/i/2015/223/b/0/marvel_vs_dc_poster_by_deffectx-d95a5a8.jpg">-->
+
+
+var always_show = false
+// ]]></script>
+<p class=heading>Select 5 of Your Favorite Genres</p>
+<form>
+  <input type="checkbox" name="genre1" value="Mystery/Horror/Suspense">Mystery/Horror/Suspense<br>
+  <input type="checkbox" name="genre2" value="Adventure/Action">Adventure/Action<br>
+  <input type="checkbox" name="genre3" value="Romance">Romance<br>
+  <input type="checkbox" name="genre4" value="Realistic Fiction">Realistic Fiction<br>
+  <input type="checkbox" name="genre5" value="Fiction">Fiction<br>
+  <input type="checkbox" name="genre6" value="Non-Fiction">Non-Fiction<br> 
+  <input type="checkbox" name="genre7" value="Graphic Novels">Graphic Novels<br>
+  <input type="checkbox" name="genre8" value="Sci-Fi">Sci-Fi<br> 
+  <input type="checkbox" name="genre9" value="Fantasy">Fantasy<br>
+  <input type="checkbox" name="genre10" value="Dystopian/Utopian">Dystopian/Utopian<br> 
+  <input type="checkbox" name="genre11" value="Novels">Novels<br>
+  <input type="checkbox" name="genre12" value="Drama">Drama<br>
+  <input type="checkbox" name="genre13" value="Poetry">Poetry<br>
+  <input type="checkbox" name="genre14" value="Comedy">Comedy
+</form>
+
+<p><!--Submit Button--> <button class="button" type="button" onclick="select()">Click This Button to Confirm Your Fave Genres and See the Books We Recommend</button></p>
+<div id="incomplete">
+<p class="ansincomplete"><b>You have not answered all of the questions yet.</b></p>
+</div>
+<p><!---------------
+RESULTS GO BELOW
+------------------>
+<!--Result 1--></p>
+
+<p>
+<script>// <![CDATA[
+/**********************************************
+ Do not edit the following code unless you are comfortable with JavaScript.
+ **********************************************/
+
+var verbose = true
+
+var num_selections = 0
+while (1) {
+  var e = document.getElementById('r' + (num_selections + 1))
+  if (e === null) break
+  ++num_selections
+}
+if (num_selections == 0) window.alert('unexpected: no section ids (r1, r2, etc.)')
+if (verbose) console.log('num_selections = ' + num_selections)
+
+num_questions = 0
+while (1) {
+  var e = document.getElementsByName('q' + (num_questions + 1))
+  if (e.length == 0) break
+  ++num_questions
+  if (e.length < 2) window.alert('unexpected: q' + num_questions + ' has less than 2 answers')
+}
+if (num_questions == 0) window.alert('unexpected: no question names (q1, q2, etc.)')
+if (verbose) console.log('num_questions = ' + num_questions)
+
+function hide_selections() {
+  if (!always_show) {
+    if (verbose) console.log('hide_selections()')
+    document.getElementById('incomplete').style.display = 'none'
+    for (var s=1; s <= num_selections; ++s) {
+      document.getElementById('r' + s).style.display = 'none'
+    }
+  }
+}
+
+hide_selections()
+
+function select() {
+  if (verbose) console.log('select()')
+  hide_selections()
+  var incomplete = false  
+  var scores = new Array(num_selections)
+  for (var s = 1; s <= num_selections; ++s) scores[s-1] = 0
+  for (var q = 1; q <= num_questions; ++q) {
+    var answers = document.getElementsByName('q' + q)
+    var choice = false
+    for (var a = 0; a < answers.length; ++a) {
+      if (answers[a].checked) {
+        choice = answers[a].value
+        break
+      }
+    }
+    if (choice === false) {
+      incomplete = true
+      break
+    }
+    if (verbose) console.log('q' + q + ': answer = ' + choice)
+    var answer = choice.substr(1)
+    for (var s = 1; s <= num_selections; ++s) {
+      var w = weights[q-1][answer-1][s-1]
+      if (typeof w === 'undefined') window.alert('error: could not find weight for q' + q + 'a' + answer + 'r' + s)
+      scores[s-1] += w
+      if (verbose) console.log('score[' + s + '] += ' + w) 
+    }
+  }
+  if (incomplete) {
+    if (verbose) console.log('incomplete')
+    document.getElementById('incomplete').style.display = 'block'
+  } else {
+    var maxscore = Number.MIN_VALUE
+    var pick = 0
+    for (var s = 1; s <= num_selections; ++s) {
+      if (verbose) console.log('score[' + s + '] == ' + scores[s-1])
+      if (scores[s-1] > maxscore) {
+        pick = s
+        maxscore = scores[s-1]
+      }
+    }
+    if (verbose) console.log('pick = r' + pick)
+    document.getElementById('r' + pick).style.display = 'block'
+  }
+}
+// ]]></script>
+</p>
+</body>
+</html>
