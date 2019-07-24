@@ -19,17 +19,18 @@ class MainHandler(webapp2.RequestHandler):
 
 class LoginPage(webapp2.RequestHandler):
 	def get(self):
-		login_template = the_jinja_env.get_template('templates/loginPage.html')
+		login_template = the_jinja_env.get_template('pages/loginPage.html')
 		self.response.write('LoginPage')
 
-class SignupPage(webapp2.RequestHandler):
+class RecommendedPage(webapp2.RequestHandler):
 	def get(self):
-		
+		recommended_page = the_jinja_env.get_template('pages/recommendedPage.html')
 
 
 # the app configuration section	
 app = webapp2.WSGIApplication([
-  ('/',SignupPage),
-  ('/', LoginPage),
+  ('/signin',SignupPage),
+  ('/login', LoginPage),
   ('/', MainHandler),
+  ('/recommend', RecommendedPage)
   ], debug=True)
