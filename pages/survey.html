@@ -34,9 +34,6 @@
   
   <img class="battle" src="https://pre00.deviantart.net/7e10/th/pre/i/2015/223/b/0/marvel_vs_dc_poster_by_deffectx-d95a5a8.jpg">-->
 
-
-var always_show = false
-// ]]></script>
 <p class=heading>Select 5 of Your Favorite Genres</p>
 <form>
   <input type="checkbox" name="genre1" value="Mystery/Horror/Suspense">Mystery/Horror/Suspense<br>
@@ -63,92 +60,9 @@ var always_show = false
 RESULTS GO BELOW
 ------------------>
 <!--Result 1--></p>
-
+ 
 <p>
-<script>// <![CDATA[
-/**********************************************
- Do not edit the following code unless you are comfortable with JavaScript.
- **********************************************/
-
-var verbose = true
-
-var num_selections = 0
-while (1) {
-  var e = document.getElementById('r' + (num_selections + 1))
-  if (e === null) break
-  ++num_selections
-}
-if (num_selections == 0) window.alert('unexpected: no section ids (r1, r2, etc.)')
-if (verbose) console.log('num_selections = ' + num_selections)
-
-num_questions = 0
-while (1) {
-  var e = document.getElementsByName('q' + (num_questions + 1))
-  if (e.length == 0) break
-  ++num_questions
-  if (e.length < 2) window.alert('unexpected: q' + num_questions + ' has less than 2 answers')
-}
-if (num_questions == 0) window.alert('unexpected: no question names (q1, q2, etc.)')
-if (verbose) console.log('num_questions = ' + num_questions)
-
-function hide_selections() {
-  if (!always_show) {
-    if (verbose) console.log('hide_selections()')
-    document.getElementById('incomplete').style.display = 'none'
-    for (var s=1; s <= num_selections; ++s) {
-      document.getElementById('r' + s).style.display = 'none'
-    }
-  }
-}
-
-hide_selections()
-
-function select() {
-  if (verbose) console.log('select()')
-  hide_selections()
-  var incomplete = false  
-  var scores = new Array(num_selections)
-  for (var s = 1; s <= num_selections; ++s) scores[s-1] = 0
-  for (var q = 1; q <= num_questions; ++q) {
-    var answers = document.getElementsByName('q' + q)
-    var choice = false
-    for (var a = 0; a < answers.length; ++a) {
-      if (answers[a].checked) {
-        choice = answers[a].value
-        break
-      }
-    }
-    if (choice === false) {
-      incomplete = true
-      break
-    }
-    if (verbose) console.log('q' + q + ': answer = ' + choice)
-    var answer = choice.substr(1)
-    for (var s = 1; s <= num_selections; ++s) {
-      var w = weights[q-1][answer-1][s-1]
-      if (typeof w === 'undefined') window.alert('error: could not find weight for q' + q + 'a' + answer + 'r' + s)
-      scores[s-1] += w
-      if (verbose) console.log('score[' + s + '] += ' + w) 
-    }
-  }
-  if (incomplete) {
-    if (verbose) console.log('incomplete')
-    document.getElementById('incomplete').style.display = 'block'
-  } else {
-    var maxscore = Number.MIN_VALUE
-    var pick = 0
-    for (var s = 1; s <= num_selections; ++s) {
-      if (verbose) console.log('score[' + s + '] == ' + scores[s-1])
-      if (scores[s-1] > maxscore) {
-        pick = s
-        maxscore = scores[s-1]
-      }
-    }
-    if (verbose) console.log('pick = r' + pick)
-    document.getElementById('r' + pick).style.display = 'block'
-  }
-}
-// ]]></script>
+</script>
 </p>
 </body>
 </html>
