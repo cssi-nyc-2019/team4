@@ -10,26 +10,16 @@ jinja_current_directory = jinja2.Environment(
 	loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-=======
-  loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-  extensions=['jinja2.ext.autoescape'],
-  autoescape=True)
->>>>>>> 2bd0dbf1b06f2038fab226e34edd4e1d80971d9f
+
 
 # other functions should go above the handlers or in a separate file
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
-<<<<<<< HEAD
-  def get(self):  # for a get RequestHandler
-  	login_template=jinja_current_directory.get_template("pages/loginPage.html")
-  	self.response.write(login_template.render())
-=======
+
   def get(self):# for a get request
     login_template = jinja_current_directory.get_template("pages/loginPage.html")
     self.response.write(login_template.render())
-
->>>>>>> 2bd0dbf1b06f2038fab226e34edd4e1d80971d9f
 
   def post(self):
     recommend_list= self.request.get('uname')
@@ -49,6 +39,11 @@ class QuizHandler(webapp2.RequestHandler):
     quiz_list= self.request.get('name')
     survey_template=jinja_current_directory.get_template("pages/survey.html")
     self.response.write(survey_template.render(quiz_list))
+
+  def post(self):
+    start_list= self.request.get('books')
+    mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    self.response.write(mend_template.render(start_list))
 
 
 
@@ -73,6 +68,7 @@ class AboutUsHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ("/new_page.php", QuizHandler),
+  ("/about", AboutUsHandler),
   ("/action_page.php", RecommendedPage)
   #('/about', AboutUsHandler),
   ], debug=True)
