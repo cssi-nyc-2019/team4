@@ -6,7 +6,7 @@ import os
 # this initializes the jinja2 environment
 # this will be the same in every app that uses the jinja2 templating library 
 jinja_current_directory = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+	loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
@@ -14,7 +14,7 @@ jinja_current_directory = jinja2.Environment(
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
-  def get(self):  # for a get request
+  def get(self):  # for a get RequestHandler
   	login_template=jinja_current_directory.get_template("pages/loginPage.html")
   	self.response.write(login_template.render())
 

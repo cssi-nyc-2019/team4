@@ -2,13 +2,15 @@
 <html>
 <head>
 	<title>Library app</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<!-- signin form -->
-	<header>Welcome to .... </header>
 
-<h2>Signup for Library.com</h2>
+  <div class="top"
+<!-- signin form -->
+	<h1>Welcome to Libraby.com, the online free reading app!</h1>
+
+
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 
@@ -42,17 +44,16 @@
     </div>
   </form>
 </div>
+<!-- Login form--> 
 
-<h2>Log back into your account</h2>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-<div id="id01" class="modal">
+<div id="id02" class="modal">
   
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -69,11 +70,12 @@
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
+
 
 
 <div class="navigation">
@@ -86,6 +88,11 @@
   </a>
   
 </div>
+
+  
+
+
+
 <!-- login form -->
 
 <script src="scripts.js"></script>

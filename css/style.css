@@ -1,6 +1,14 @@
+
+h1 {
+  float:center;
+  text-align:center;
+}
+
+
 /* signup form css */
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+body {
+  background-color: #cce6ff;
+  font-family: Arial, Helvetica, sans-serif}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -115,7 +123,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 12px 20px;
+  padding:10px;
+  padding-top: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
@@ -124,13 +133,14 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-color: black;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 15px 20px;
+  margin: 8px 0px;
   border: none;
   cursor: pointer;
   width: 100%;
+  float:right;
 }
 
 button:hover {
@@ -232,6 +242,64 @@ span.psw {
 }
 
 /* LOGOUT BUTTON */
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  text-align: center;
+  right: 3px;
+  bottom: -7px;
+  overflow: visible;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+  text-decoration: none;
+  float: right;
+  padding: 13px;
+  margin: 17px;
+  color: white;
+  height:25px;
+  width: 20px;
+  background-color: black;
+  transition: width .20s;
+  -webkit-transition: width .40s;
+  overflow: hidden;
+  justify-content: flex-end;
+}
+
+a:hover {
+  width: 150px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
 
 
 
