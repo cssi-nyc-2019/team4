@@ -14,7 +14,6 @@ jinja_current_directory = jinja2.Environment(
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
-<<<<<<< HEAD
 	def get(self):# for a get request
 		login_template = jinja_current_directory.get_template("pages/loginPage.html")
 		self.response.write(login_template.render())
@@ -23,25 +22,21 @@ class RecommendedPage(webapp2.RequestHandler):
 	def get(self):
 		recommended_template = jinja_current_directory.get_template('pages/recommendedPage.html')
 		self.response.write(recommended_template.render())
-=======
-  def get(self):  # for a get request
-	login_template=jinja_current_directory.get_template("pages/loginPage.html")
-	self.response.write(login_template.render())
 
 class QuizHandler(webapp2.RequestHandler):
   def get(self):
-  	quiz_template=jinja_current_directory.get_template("pages/survey.html")
+  	quiz_template = jinja_current_directory.get_template("pages/survey.html")
   	self.response.write(quiz_template.render())
 
->>>>>>> 37e0ffa906df236d95ebb5d94cb877865a5a663d
-
+class AboutUsHandler(webapp2.RequestHandler):
+  def get(self):
+    about_template = jinja_current_directory.get_template("pages/about_us.html")
+    self.response.write(about_template.render())
 
 # the app configuration section	
 app = webapp2.WSGIApplication([
-  ('/', MainHandler),
-<<<<<<< HEAD
-  ('/recommend', RecommendedPage)
-=======
+  ('/main', MainHandler),
+  ('/recommend', RecommendedPage),
   ('/quiz', QuizHandler),
->>>>>>> 37e0ffa906df236d95ebb5d94cb877865a5a663d
+  ('/about', AboutUsHandler),
   ], debug=True)
