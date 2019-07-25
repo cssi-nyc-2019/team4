@@ -11,3 +11,7 @@ window.onclick = function(event) {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bd0dbf1b06f2038fab226e34edd4e1d80971d9f
