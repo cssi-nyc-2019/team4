@@ -22,9 +22,12 @@ class RecommendedPage(webapp2.RequestHandler):
 	def get(self):
 		recommended_template = jinja_current_directory.get_template('pages/recommendedPage.html')
 		self.response.write(recommended_template.render())
+
+
 	def get(self):  # for a get request
 		login_template=jinja_current_directory.get_template("pages/loginPage.html")
 		self.response.write(login_template.render())
+
 
 class QuizHandler(webapp2.RequestHandler):
 	def get(self):
@@ -34,9 +37,18 @@ class QuizHandler(webapp2.RequestHandler):
 
 
 
+
 # the app configuration section	
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/recommend', RecommendedPage),
-  ('/quiz', QuizHandler)
+  ("/quiz", QuizHandler),
   ], debug=True)
+
+
+
+  #def post(self):
+    #recommend_list= self.request.get('uname')
+    #rec_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    #self.response.write(rec_template.render(recommend_list))
+
