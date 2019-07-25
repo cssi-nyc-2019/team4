@@ -14,19 +14,43 @@ jinja_current_directory = jinja2.Environment(
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
-	def get(self):# for a get request
-		login_template = jinja_current_directory.get_template("pages/loginPage.html")
-		self.response.write(login_template.render())
-		
-class RecommendedPage(webapp2.RequestHandler):
-	def get(self):
-		recommended_template = jinja_current_directory.get_template('pages/recommendedPage.html')
-		self.response.write(recommended_template.render())
+  def get(self):# for a get request
+    login_template = jinja_current_directory.get_template("pages/loginPage.html")
+    self.response.write(login_template.render())
+
+
+  def post(self):
+    recommend_list= self.request.get('uname')
+    rec_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    self.response.write(rec_template.render(recommend_list))
+
+
 
 class QuizHandler(webapp2.RequestHandler):
   def get(self):
-  	quiz_template = jinja_current_directory.get_template("pages/survey.html")
-  	self.response.write(quiz_template.render())
+
+    quiz_template=jinja_current_directory.get_template("pages/survey.html")
+    self.response.write(quiz_template.render())
+
+  
+  def post(self):
+    quiz_list= self.request.get('name')
+    survey_template=jinja_current_directory.get_template("pages/survey.html")
+    self.response.write(survey_template.render(quiz_list))
+
+
+
+class RecommendedPage(webapp2.RequestHandler):
+  def get(self):
+    recommended_template = jinja_current_directory.get_template('pages/recommendedPage.html')
+    self.response.write(recommended_template.render())
+
+
+  def post(self):
+    recommend_list= self.request.get('uname')
+    rec_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    self.response.write(rec_template.render(recommend_list))
+
 
 class AboutUsHandler(webapp2.RequestHandler):
   def get(self):
@@ -35,8 +59,10 @@ class AboutUsHandler(webapp2.RequestHandler):
 
 # the app configuration section	
 app = webapp2.WSGIApplication([
-  ('/main', MainHandler),
-  ('/recommend', RecommendedPage),
-  ('/quiz', QuizHandler),
-  ('/about', AboutUsHandler),
+  ('/', MainHandler),
+  ("/new_page.php", QuizHandler),
+  ("/action_page.php", RecommendedPage)
+  #('/about', AboutUsHandler),
   ], debug=True)
+
+
