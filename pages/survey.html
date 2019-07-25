@@ -3,8 +3,7 @@
 <head>
 
    
-	<!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
-  <script src="survey.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 	
 	
 </head>
@@ -35,30 +34,286 @@
   
   <img class="battle" src="https://pre00.deviantart.net/7e10/th/pre/i/2015/223/b/0/marvel_vs_dc_poster_by_deffectx-d95a5a8.jpg">-->
 
-<div class="pricing-levels-3">
-  <p><strong>Which level would you like? (Select 3 Levels)</strong></p>
-  <input class="single-checkbox"type="checkbox" name="genre" value="Mystery/Horror/Suspense">Mystery/Horror/Suspense<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Adventure/Action">Adventure/Action<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Romance">Romance<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Realistic Fiction">Realistic Fiction<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Fiction">Fiction<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Non-Fiction">Non-Fiction<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Graphic Novels">Graphic Novels<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Sci-Fi">Sci-Fi<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Fantasy">Fantasy<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Utopian/Dystopian">Utopian/Dystopian<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Novels">Novels<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Drama">Level 7<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Poetry">Level 7<br>
-  <input class="single-checkbox" type="checkbox" name="genre" value="Comedy">Level 7<br>
+
+<div class="container">
+  <script>// <![CDATA[
+/************************************************************************************
+
+  This is how you enter the weights for each possible question / answer / result:
+
+  q: question #
+  a: answer #
+  r: result #
+  
+  for example, q1a2r3 determines how r3's score is affected if a2 is picked for q1
+
+var weights = [
+  [[q1a1r1, q1a1r2, q1a1r3, ... q1a1r?], [q1a2r1, q1a2r2, ...], [q1a?s1, ...]],
+  [[q2a1r1, q2a1r2, ...], [q2a2r1, ...], [q2a?r1, ...]],
+  ...
+  [[q?a1r1, q?a1r2, ...], [q?a2r1, ...], [q?a?r1, ...]]
+]
+
+*************************************************************************************/
+
+/****************
+WEIGHTS GO BELOW
+*****************/
+
+var weights = [
+  // Question 1
+  [[10, 8, 2, 10, -6], [6, 10, 2, -6, -3], [1, 9, -4, 6, 6], [4, -2, 8, 2, -3], [-7, -4, 10, -10, -10]],
+  
+  // Question 2
+  [[-6, 10, -9, -7, 2], [-2, 5, -5, -5, 10], [-10, 10, -7, 3, 4], [6, -9, 10, 10, -9]],
+
+  // Question 3
+  [[-2, 10, -10, 10, 6], [6, -2, 10, -6, 9], [10, -6, 8, 2, -10], [3, -1, 6, 10, -7], [-8, -4, 5, 3, 1]],
+  
+  // Question 4
+  [[10, 3, -9, -7, 2], [-2, 7, 10, 10, 3], [5, 5, 3, 10, 4], [10, 10, 8, -10, -10]],
+
+  // Question 5
+  [[10, 10, -9, -7, 2], [2, 3, -5, 10, 5], [6, 5, 7, -10, 4], [-9, -2, 10, -3, -5]],
+  
+  // Question 6
+  [[10, -10, -10, 9, -6], [6, -2, 10, -6, 3], [7, -6, 8, 2, -10], [3, -1, 6, 10, -7], [-8, -4, 5, 3, 10]],
+
+  // Question 7
+  [[-6, 10, -9, -7, 2], [-2, 3, -5, -5, 6], [10, 5, 7, 10, 4], [-9, -2, -8, -10, -10]],
+  
+  // Question 8
+  [[10, 8, -9, 7, 2], [-2, 10, -5, -5, 7], [6, 5, 7, -10, 4], [-9, -2, -8, 6, -10]],
+
+  // Question 9
+  [[-2, 10, -10, 2, 6], [6, -2, 10, -6, 3], [10, -6, 8, 2, -10], [3, -1, 6, 10, -7], [-8, -4, 5, 3, 10]],
+  
+  // Question 10
+  [[-6, 3, 10, 6, 2], [-2, 8, -5, -5, 3], [10, 5, -7, 10, 7], [9, 2, -8, 10, 3]]
+]
+
+/*
+  If you want to see all of the possible results at the same time,
+  (to help you edit your page) modify the following to be:
+  var always_show = true
+  
+  To make the page work properly, it should be:
+  var always_show = false
+*/
+
+var always_show = false
+// ]]></script>
+<h1 heading>Answer the Questions Below So We Can Figure Out What Genres You Like, and See What Books We Recommend:</h1>
+<ol><!------------------
+QUESTIONS GO BELOW
+----------------------> <!--Question 1-->
+  <li><h2>What is Your All Time Favorite Genre of Books?</h2>  
+    <label class="choice"><input type="radio" name="q1" value="a1" />Adventure/Action</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a2" />Romance</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a3" />Mystery/Horror/Suspense</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a4" />Realistic Fiction</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a6" />Fiction</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a7" />Non-Fiction</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a8" />Graphic Novels</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a9" />Sci-Fi</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a10" />Fantasy</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a11" />Dystopian/Utopian</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a12" />Novels</label> <br>
+    <label class="choice"><input type="radio" name="q1" value="a13" />Drama</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a14" />Poetry</label> <br> 
+    <label class="choice"><input type="radio" name="q1" value="a15" />Comedy</label> <br>
+  </li>
+
+<!--Question 2-->
+  <li><h2>What is Your Second Favorite Genre of Books?</h2>  
+    <label class="choice"><input type="radio" name="q2" value="a1" />Adventure/Action</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a2" />Romance</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a3" />Mystery/Horror/Suspense</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a4" />Realistic Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a6" />Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a7" />Non-Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a8" />Graphic Novels</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a9" />Sci-Fi</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a10" />Fantasy</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a11" />Dystopian/Utopian</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a12" />Novels</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a13" />Drama</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a14" />Poetry</label> <br>
+    <label class="choice"><input type="radio" name="q2" value="a15" />Comedy</label> <br>
+  </li> 
+
+<!--Question 3-->
+  <li><h2>What is Your Third Favorite Genre of Books?</h2>  
+    <label class="choice"><input type="radio" name="q3" value="a1" />Adventure/Action</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a2" />Romance</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a3" />Mystery/Horror/Suspense</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a4" />Realistic Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a6" />Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a7" />Non-Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a8" />Graphic Novels</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a9" />Sci-Fi</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a10" />Fantasy</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a11" />Dystopian/Utopian</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a12" />Novels</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a13" />Drama</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a14" />Poetry</label> <br>
+    <label class="choice"><input type="radio" name="q3" value="a15" />Comedy</label> <br>
+  </li> 
+
+<!--Question 4--></li>
+  <li><h2>What is Your Fourth Favorite Genre of Books?</h2>  
+    <label class="choice"><input type="radio" name="q4" value="a1" />Adventure/Action</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a2" />Romance</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a3" />Mystery/Horror/Suspense</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a4" />Realistic Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a6" />Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a7" />Non-Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a8" />Graphic Novels</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a9" />Sci-Fi</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a10" />Fantasy</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a11" />Dystopian/Utopian</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a12" />Novels</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a13" />Drama</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a14" />Poetry</label> <br>
+    <label class="choice"><input type="radio" name="q4" value="a15" />Comedy</label> <br>
+  </li> 
+
+<!--Question 5--></li>
+  <li><h2>What is Your Fifth Favorite Genre of Books?</h2>  
+    <label class="choice"><input type="radio" name="q5" value="a1" />Adventure/Action</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a2" />Romance</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a3" />Mystery/Horror/Suspense</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a4" />Realistic Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a6" />Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a7" />Non-Fiction</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a8" />Graphic Novels</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a9" />Sci-Fi</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a10" />Fantasy</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a11" />Dystopian/Utopian</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a12" />Novels</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a13" />Drama</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a14" />Poetry</label> <br>
+    <label class="choice"><input type="radio" name="q5" value="a15" />Comedy</label> <br>
+  </li> 
+</ol>
+
+<p><!--Submit Button--> <button class="button" type="button" onclick="select()">Click Here to See What Books We Recommend You To Read</button></p>
+<div id="incomplete">
+<p class="ansincomplete"><b>You have not answered all of the questions yet.</b></p>
 </div>
-
-<p><!--Submit Button--> <button class="survey" type="button" onclick="select()">Click This Button to Confirm Your Fave Genres and See the Books We Recommend</button></p>
-
-
- 
+<p><!---------------
+RESULTS GO BELOW
+------------------>
+<!--Result 1--></p>
+<div id="r1">
+<p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
+<p><img class="centerimg" src="https://cdn3.whatculture.com/images/2017/07/0948dd8a4224bd79-600x338.jpg"/></p>
+</div>
+<p><!--Result 2--></p>
+<div id="r2">
+<p>You are Team Marvel!!! You get to fight alongside The Incredible Hulk, Captain America, Iron-Man, Black Widow, and Spider-Man. Consider them your family. You are an awesome superhero with a lot of capabilities. You want the best for the city you were born in and your family and friends. </p>
+<p><img class="centerimg" src="http://i.imgur.com/CzZGmNX.png"/></p>
+</div>
+<p><!--Result 3--></p>
+<div id="r3">
+<p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
+<p><img class="centerimg" src="https://i.pinimg.com/originals/4f/25/49/4f25496afbef83e5941f24fc960d982e.jpg#990000" /></p>
+</div>
+<p><!--Result 4--></p>
+<div id="r4">
+<p>You are Team Marvel!!! You get to fight alongside The Incredible Hulk, Captain America, Iron-Man, Black Widow, and Spider-Man. Consider them your family. You are an awesome superhero with a lot of capabilities. You want the best for the city you were born in and your family and friends.</p>
+<p><img class="centerimg" src="https://churchm.ag/wp-content/uploads/2013/11/marvel_characters.jpg" /></p>
+</div>
+<p><!--Result 5--></p>
+<div id="r5">
+<p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
+<p><img class="centerimg" src="https://vignette.wikia.nocookie.net/superheroes/images/a/ad/DC_Characters.jpg/revision/latest?cb=20140719022313" /></p>
+</div>
 <p>
-</script>
+<script>// <![CDATA[
+/**********************************************
+ Do not edit the following code unless you are comfortable with JavaScript.
+ **********************************************/
+
+var verbose = true
+
+var num_selections = 0
+while (1) {
+  var e = document.getElementById('r' + (num_selections + 1))
+  if (e === null) break
+  ++num_selections
+}
+if (num_selections == 0) window.alert('unexpected: no section ids (r1, r2, etc.)')
+if (verbose) console.log('num_selections = ' + num_selections)
+
+num_questions = 0
+while (1) {
+  var e = document.getElementsByName('q' + (num_questions + 1))
+  if (e.length == 0) break
+  ++num_questions
+  if (e.length < 2) window.alert('unexpected: q' + num_questions + ' has less than 2 answers')
+}
+if (num_questions == 0) window.alert('unexpected: no question names (q1, q2, etc.)')
+if (verbose) console.log('num_questions = ' + num_questions)
+
+function hide_selections() {
+  if (!always_show) {
+    if (verbose) console.log('hide_selections()')
+    document.getElementById('incomplete').style.display = 'none'
+    for (var s=1; s <= num_selections; ++s) {
+      document.getElementById('r' + s).style.display = 'none'
+    }
+  }
+}
+
+hide_selections()
+
+function select() {
+  if (verbose) console.log('select()')
+  hide_selections()
+  var incomplete = false  
+  var scores = new Array(num_selections)
+  for (var s = 1; s <= num_selections; ++s) scores[s-1] = 0
+  for (var q = 1; q <= num_questions; ++q) {
+    var answers = document.getElementsByName('q' + q)
+    var choice = false
+    for (var a = 0; a < answers.length; ++a) {
+      if (answers[a].checked) {
+        choice = answers[a].value
+        break
+      }
+    }
+    if (choice === false) {
+      incomplete = true
+      break
+    }
+    if (verbose) console.log('q' + q + ': answer = ' + choice)
+    var answer = choice.substr(1)
+    for (var s = 1; s <= num_selections; ++s) {
+      var w = weights[q-1][answer-1][s-1]
+      if (typeof w === 'undefined') window.alert('error: could not find weight for q' + q + 'a' + answer + 'r' + s)
+      scores[s-1] += w
+      if (verbose) console.log('score[' + s + '] += ' + w) 
+    }
+  }
+  if (incomplete) {
+    if (verbose) console.log('incomplete')
+    document.getElementById('incomplete').style.display = 'block'
+  } else {
+    var maxscore = Number.MIN_VALUE
+    var pick = 0
+    for (var s = 1; s <= num_selections; ++s) {
+      if (verbose) console.log('score[' + s + '] == ' + scores[s-1])
+      if (scores[s-1] > maxscore) {
+        pick = s
+        maxscore = scores[s-1]
+      }
+    }
+    if (verbose) console.log('pick = r' + pick)
+    document.getElementById('r' + pick).style.display = 'block'
+  }
+}
+// ]]></script>
 </p>
 </body>
 </html>
