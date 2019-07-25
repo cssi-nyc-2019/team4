@@ -48,11 +48,11 @@ class BaseHandler(webapp2.RequestHandler):
 
 class SignupHandler(BaseHandler):
   def get(self):  # for a get request
-    welcome_template = jinja_current_directory.get_template('templates/signup.html')
+    welcome_template = jinja_current_directory.get_template('pages/loginPage.html')
     self.response.write(welcome_template.render())
 
   def post(self):
-    signup_template = jinja_current_directory.get_template('templates/signup.html')
+    signup_template = jinja_current_directory.get_template('pages/loginPage.html')
     username = self.request.get('username')
     email = self.request.get('email')
     password = self.request.get('password')
