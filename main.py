@@ -29,9 +29,20 @@ class QuizHandler(webapp2.RequestHandler):
   		self.response.write(quiz_template.render())
 
 
+  	def get(self):
+  		quiz_template = jinja_current_directory.get_template("pages/survey.html")
+  		self.response.write(quiz_template.render())
+
+class AboutUsHandler(webapp2.RequestHandler):
+  def get(self):
+    about_template = jinja_current_directory.get_template("pages/about_us.html")
+    self.response.write(about_template.render())
+
+
 # the app configuration section	
 app = webapp2.WSGIApplication([
-  ('/', MainHandler),
+  ('/main', MainHandler),
   ('/recommend', RecommendedPage),
-  ('/quiz', QuizHandler)
+  ('/quiz', QuizHandler),
+  ('/about', AboutUsHandler),
   ], debug=True)
