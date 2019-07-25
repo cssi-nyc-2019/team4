@@ -7,7 +7,6 @@ import os
 # this initializes the jinja2 environment
 # this will be the same in every app that uses the jinja2 templating library 
 jinja_current_directory = jinja2.Environment(
-<<<<<<< HEAD
 	loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
