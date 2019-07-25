@@ -12,7 +12,7 @@
 
 <div class="header">
     <div>
-      <!--<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/BuzzFeed.svg/1280px-BuzzFeed.svg.png"></div>
+      <!--<img class="logo" src="http://www.scalsys.com/cliparts/book-stack-clipart/book-stack-clipart_114110.jpg"></div>
     <div>
       <a href= "https://www.buzzfeednews.com/">News</a>
     </div>
@@ -34,8 +34,6 @@
   
   
   <img class="battle" src="https://pre00.deviantart.net/7e10/th/pre/i/2015/223/b/0/marvel_vs_dc_poster_by_deffectx-d95a5a8.jpg">-->
-
-<<<<<<< HEAD
 
 <div class="container">
   <script>// <![CDATA[
@@ -199,148 +197,19 @@ QUESTIONS GO BELOW
   </li> 
 </ol>
 
-<p><!--Submit Button--> <button class="button" type="button" onclick="select()">Click Here to See What Books We Recommend You To Read</button></p>
+<p><!--Submit Button--> 
+<button class="button" type="button" onclick="select()">Click Here to See What Books We Recommend You To Read</button></p>
 <div id="incomplete">
 <p class="ansincomplete"><b>You have not answered all of the questions yet.</b></p>
 </div>
-<p><!---------------
-RESULTS GO BELOW
------------------->
-<!--Result 1--></p>
-<div id="r1">
-<p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
-<p><img class="centerimg" src="https://cdn3.whatculture.com/images/2017/07/0948dd8a4224bd79-600x338.jpg"/></p>
-</div>
-<p><!--Result 2--></p>
-<div id="r2">
-<p>You are Team Marvel!!! You get to fight alongside The Incredible Hulk, Captain America, Iron-Man, Black Widow, and Spider-Man. Consider them your family. You are an awesome superhero with a lot of capabilities. You want the best for the city you were born in and your family and friends. </p>
-<p><img class="centerimg" src="http://i.imgur.com/CzZGmNX.png"/></p>
-</div>
-<p><!--Result 3--></p>
-<div id="r3">
-<p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
-<p><img class="centerimg" src="https://i.pinimg.com/originals/4f/25/49/4f25496afbef83e5941f24fc960d982e.jpg#990000" /></p>
-</div>
-<p><!--Result 4--></p>
-<div id="r4">
-<p>You are Team Marvel!!! You get to fight alongside The Incredible Hulk, Captain America, Iron-Man, Black Widow, and Spider-Man. Consider them your family. You are an awesome superhero with a lot of capabilities. You want the best for the city you were born in and your family and friends.</p>
-<p><img class="centerimg" src="https://churchm.ag/wp-content/uploads/2013/11/marvel_characters.jpg" /></p>
-</div>
-<p><!--Result 5--></p>
-<div id="r5">
-<p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
-<p><img class="centerimg" src="https://vignette.wikia.nocookie.net/superheroes/images/a/ad/DC_Characters.jpg/revision/latest?cb=20140719022313" /></p>
-</div>
-=======
-<p class=heading>Select 5 of Your Favorite Genres</p>
-<form method= "post" name="Genres"[] id "Genres">
-  <input type="checkbox" name="genre1" value="Mystery/Horror/Suspense">Mystery/Horror/Suspense<br>
-  <input type="checkbox" name="genre2" value="Adventure/Action">Adventure/Action<br>
-  <input type="checkbox" name="genre3" value="Romance">Romance<br>
-  <input type="checkbox" name="genre4" value="Realistic Fiction">Realistic Fiction<br>
-  <input type="checkbox" name="genre5" value="Fiction">Fiction<br>
-  <input type="checkbox" name="genre6" value="Non-Fiction">Non-Fiction<br> 
-  <input type="checkbox" name="genre7" value="Graphic Novels">Graphic Novels<br>
-  <input type="checkbox" name="genre8" value="Sci-Fi">Sci-Fi<br> 
-  <input type="checkbox" name="genre9" value="Fantasy">Fantasy<br>
-  <input type="checkbox" name="genre10" value="Dystopian/Utopian">Dystopian/Utopian<br> 
-  <input type="checkbox" name="genre11" value="Novels">Novels<br>
-  <input type="checkbox" name="genre12" value="Drama">Drama<br>
-  <input type="checkbox" name="genre13" value="Poetry">Poetry<br>
-  <input type="checkbox" name="genre14" value="Comedy">Comedy
-</form>
+
+
 
 <p><!--Submit Button--> 
   <button type="button" id="books" onclick="document.getElementById('id03').style.display='none'" class="aboutbtn"><a href=/action_page.php>See some recommended books to start your libary </a></button>
 
-
- 
->>>>>>> b3400772c65a10e210c21be253b2fd5e33cf266e
 <p>
-<script>// <![CDATA[
-/**********************************************
- Do not edit the following code unless you are comfortable with JavaScript.
- **********************************************/
 
-var verbose = true
-
-var num_selections = 0
-while (1) {
-  var e = document.getElementById('r' + (num_selections + 1))
-  if (e === null) break
-  ++num_selections
-}
-if (num_selections == 0) window.alert('unexpected: no section ids (r1, r2, etc.)')
-if (verbose) console.log('num_selections = ' + num_selections)
-
-num_questions = 0
-while (1) {
-  var e = document.getElementsByName('q' + (num_questions + 1))
-  if (e.length == 0) break
-  ++num_questions
-  if (e.length < 2) window.alert('unexpected: q' + num_questions + ' has less than 2 answers')
-}
-if (num_questions == 0) window.alert('unexpected: no question names (q1, q2, etc.)')
-if (verbose) console.log('num_questions = ' + num_questions)
-
-function hide_selections() {
-  if (!always_show) {
-    if (verbose) console.log('hide_selections()')
-    document.getElementById('incomplete').style.display = 'none'
-    for (var s=1; s <= num_selections; ++s) {
-      document.getElementById('r' + s).style.display = 'none'
-    }
-  }
-}
-
-hide_selections()
-
-function select() {
-  if (verbose) console.log('select()')
-  hide_selections()
-  var incomplete = false  
-  var scores = new Array(num_selections)
-  for (var s = 1; s <= num_selections; ++s) scores[s-1] = 0
-  for (var q = 1; q <= num_questions; ++q) {
-    var answers = document.getElementsByName('q' + q)
-    var choice = false
-    for (var a = 0; a < answers.length; ++a) {
-      if (answers[a].checked) {
-        choice = answers[a].value
-        break
-      }
-    }
-    if (choice === false) {
-      incomplete = true
-      break
-    }
-    if (verbose) console.log('q' + q + ': answer = ' + choice)
-    var answer = choice.substr(1)
-    for (var s = 1; s <= num_selections; ++s) {
-      var w = weights[q-1][answer-1][s-1]
-      if (typeof w === 'undefined') window.alert('error: could not find weight for q' + q + 'a' + answer + 'r' + s)
-      scores[s-1] += w
-      if (verbose) console.log('score[' + s + '] += ' + w) 
-    }
-  }
-  if (incomplete) {
-    if (verbose) console.log('incomplete')
-    document.getElementById('incomplete').style.display = 'block'
-  } else {
-    var maxscore = Number.MIN_VALUE
-    var pick = 0
-    for (var s = 1; s <= num_selections; ++s) {
-      if (verbose) console.log('score[' + s + '] == ' + scores[s-1])
-      if (scores[s-1] > maxscore) {
-        pick = s
-        maxscore = scores[s-1]
-      }
-    }
-    if (verbose) console.log('pick = r' + pick)
-    document.getElementById('r' + pick).style.display = 'block'
-  }
-}
-// ]]></script>
 </p>
 </body>
 </html>
