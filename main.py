@@ -28,6 +28,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class QuizHandler(webapp2.RequestHandler):
   def get(self):
+
     quiz_template=jinja_current_directory.get_template("pages/survey.html")
     self.response.write(quiz_template.render())
 
@@ -49,20 +50,19 @@ class RecommendedPage(webapp2.RequestHandler):
     recommend_list= self.request.get('uname')
     rec_template=jinja_current_directory.get_template("pages/recommendedPage.html")
     self.response.write(rec_template.render(recommend_list))
-  
 
 
-
-
-  
+class AboutUsHandler(webapp2.RequestHandler):
+  def get(self):
+    about_template = jinja_current_directory.get_template("pages/about_us.html")
+    self.response.write(about_template.render())
 
 # the app configuration section	
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ("/new_page.php", QuizHandler),
   ("/action_page.php", RecommendedPage)
+  #('/about', AboutUsHandler),
   ], debug=True)
 
 
-
-  
