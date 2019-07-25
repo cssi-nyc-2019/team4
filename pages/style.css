@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+
+* signup form css */
+=======
 /* signup form css */
+>>>>>>> 27553a3d6da82d34d6cda91a62e7f1f6b97023d7
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
@@ -21,6 +26,7 @@ input[type=text]:focus, input[type=password]:focus {
 /* Set a style for all buttons */
 button {
   background-color: #4CAF50;
+  float: right;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -107,6 +113,9 @@ hr {
   .cancelbtn, .signupbtn {
      width: 100%;
   }
+<<<<<<< HEAD
+}
+=======
 }
 
 /*login pop-up form*/
@@ -253,3 +262,4 @@ span.psw {
 
 
 
+>>>>>>> 27553a3d6da82d34d6cda91a62e7f1f6b97023d7
