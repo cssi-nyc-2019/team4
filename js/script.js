@@ -18,7 +18,6 @@ window.onclick = function(event) {
     }
 }
 
-<<<<<<< HEAD
 var slideIndex = 0;
 showSlides();
 
@@ -38,5 +37,4 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
-=======
->>>>>>> 79c3e953a3fb8425f9820ffa0a1454bd7c2bd5bd
+
