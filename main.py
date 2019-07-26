@@ -50,11 +50,20 @@ class BaseHandler(webapp2.RequestHandler):
 
 class SignupHandler(BaseHandler):
   def get(self):  # for a get request
-    welcome_template = jinja_current_directory.get_template('templates/signup.html')
-    self.response.write(welcome_template.render())
+    signup_template = jinja_current_directory.get_template('pages/survey.html')
+    username = self.request.get('name')
+    email = self.request.get('psw')
+    password = self.request.get('psw-repeat')
 
+    user = User(username = username, email = email, password = password)
+    user_id = user.put()
+    login(self, username)
+    variable_dict = {"username": username}
+    self.response.write(signup_template.render(variable_dict))
+
+'''
   def post(self):
-    signup_template = jinja_current_directory.get_template('templates/signup.html')
+    signup_template = jinja_current_directory.get_template('pages/survey.html')
     username = self.request.get('username')
     email = self.request.get('email')
     password = self.request.get('password')
@@ -64,7 +73,7 @@ class SignupHandler(BaseHandler):
     login(self, username)
     variable_dict = {"username": username}
     self.response.write(signup_template.render(variable_dict))
-
+'''
 
 class LogoutHandler(BaseHandler):
   def get(self):  # for a get request
@@ -153,6 +162,10 @@ config['webapp2_extras.sessions'] = {
 # the app configuration section	
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
+  ("/new_page.php", SignupHandler),
+  ("/about", AboutUsHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/logout.html", LogoutHandler),
   ("/new_page.php", QuizHandler),
   ("/action_page.php", RecommendedPage),
   ("/library_page", LibraryPage),
