@@ -31,6 +31,8 @@ def isLoggedIn(self):
   else:
     return False
 
+
+
 class BaseHandler(webapp2.RequestHandler):
     def dispatch(self):
         # Get a session store for this request.
@@ -79,18 +81,19 @@ class LogoutHandler(BaseHandler):
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
+
 	def get(self):# for a get request
 		login_template = jinja_current_directory.get_template("pages/loginPage.html")
-    	self.response.write(login_template.render())
+		self.response.write(login_template.render())
 
-    def get(self):
-    	login_template = jinja_current_directory.get_template("pages/loginPage.html")
-    	self.response.write(login_template.render())
-	
+	def get(self):
+		login_template = jinja_current_directory.get_template("pages/loginPage.html")
+		self.response.write(login_template.render())
+
 	def post(self):
-    	recommend_list= self.request.get('uname')
-    	rec_template=jinja_current_directory.get_template("pages/recommendedPage.html")
-    	self.response.write(rec_template.render(recommend_list))
+		recommend_list = self.request.get('uname')
+		rec_template = jinja_current_directory.get_template("pages/recommendedPage.html")
+		self.response.write(rec_template.render(recommend_list))
 
   	def post(self):
   		recommend_list = self.request.get('uname')
@@ -107,9 +110,9 @@ class QuizHandler(webapp2.RequestHandler):
     	self.response.write(quiz_template.render())
 	
 	def post(self):
-    	quiz_list= self.request.get('name')
-   		survey_template=jinja_current_directory.get_template("pages/survey.html")
-    	self.response.write(survey_template.render(quiz_list))
+		quiz_list= self.request.get('name')
+		survey_template=jinja_current_directory.get_template("pages/survey.html")
+		self.response.write(survey_template.render(quiz_list))
 
   	def post(self):
    		start_list= self.request.get('books')
@@ -151,15 +154,12 @@ config['webapp2_extras.sessions'] = {
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ("/new_page.php", QuizHandler),
-<<<<<<< HEAD
   ("/action_page.php", RecommendedPage),
   ("/library_page", LibraryPage),
   ("/about", AboutUsHandler)
-=======
   ("/about", AboutUsHandler),
   ("/action_page.php", RecommendedPage),
   ("/logout", LogoutHandler)
->>>>>>> a4f4dcbbc6c213e1ae14858b06a7d29e4ad333e2
   #('/about', AboutUsHandler),
   ], debug=True, config=config)
 
