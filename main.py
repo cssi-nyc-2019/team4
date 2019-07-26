@@ -151,15 +151,10 @@ config['webapp2_extras.sessions'] = {
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ("/new_page.php", QuizHandler),
-<<<<<<< HEAD
-  ("/action_page.php", RecommendedPage),
   ("/library_page", LibraryPage),
-  ("/about", AboutUsHandler)
-=======
   ("/about", AboutUsHandler),
   ("/action_page.php", RecommendedPage),
   ("/logout", LogoutHandler)
->>>>>>> a4f4dcbbc6c213e1ae14858b06a7d29e4ad333e2
   #('/about', AboutUsHandler),
   ], debug=True, config=config)
 
