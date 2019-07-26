@@ -1,8 +1,35 @@
 /* signup form css */
+<<<<<<< HEAD
+
+/*body {
+  background-color:#cce6ff;
+  float: center ;
+}
+
+*/
+.forms {
+   background-color:#cce6ff;
+  float: center ;
+}
+
+
+body {
+  background-color: #cce6ff;
+  font-family: Arial, Helvetica, sans-serif}
+
+body {font-family: Arial, Helvetica, sans-serif}
+=======
+>>>>>>> d17c74d050b087f4a34bf5c5375668026eddac90
 
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
+<<<<<<< HEAD
+* {box-sizing: border-box}
+
+
+=======
+>>>>>>> d17c74d050b087f4a34bf5c5375668026eddac90
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;

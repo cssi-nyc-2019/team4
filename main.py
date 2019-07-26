@@ -13,8 +13,6 @@ loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
 autoescape=True)
 
-
-#user info storage 
 def getCurrentUser(self):
   #will return None if user does not exist
   return self.session.get('user')
@@ -35,6 +33,29 @@ def isLoggedIn(self):
 
 class BaseHandler(webapp2.RequestHandler):
   def dispatch(self):
+<<<<<<< HEAD
+    self.session_store = sessions.get_store(request=self.request)
+    try:
+      webapp2.RequestHandler.dispatch(self)
+    finally:
+      self.session_store.save_sessions(self.response)
+      @webapp2.cached_property
+      def session(self):
+        return self.session_store.get_session()
+        # Returns a session using the default cookie key.
+      
+ # for a get request
+class SignupHandler(BaseHandler):
+  def get(self): 
+    welcome_template = jinja_current_directory.get_template('templates/signup.html')
+    self.response.write(welcome_template.render())
+
+  def post(self):
+    signup_template = jinja_current_directory.get_template('templates/signup.html')
+    username = self.request.get('username')
+    email = self.request.get('email')
+    password = self.request.get('password')
+=======
     # Get a session store for this request.
     self.session_store = sessions.get_store(request=self.request)
     try:
@@ -54,6 +75,7 @@ class SignupHandler(BaseHandler):
     username = self.request.get('name')
     email = self.request.get('psw')
     password = self.request.get('psw-repeat')
+>>>>>>> bc7078f834ce393ef01d3fbbb3f5fa49229bf448
 
     user = User(username = username, email = email, password = password)
     user_id = user.put()
@@ -77,19 +99,49 @@ self.response.write(signup_template.render(variable_dict))
 
 class LogoutHandler(BaseHandler):
   def get(self):  # for a get request
-    logout_template =jinja_current_directory.get_template('pages/logout.html')
-    user = getCurrentUser(self)
-    if user is not None:
-      logout(self)
-      self.response.write(logout_template.render())
-    else:
-      self.redirect('/')
+  logout_template =jinja_current_directory.get_template('pages/logout.html')
+  user = getCurrentUser(self)
+  if user is not None:
+    logout(self)
+    self.response.write(logout_template.render())
+  else:
+    self.redirect('/')
 
 
 # other functions should go above the handlers or in a separate file
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
+  def get(self):# for a get request
+  login_template = jinja_current_directory.get_template("pages/loginPage.html")
+  self.response.write(login_template.render())
+
+  def post(self):
+    recommend_list= self.request.get('uname')
+    rec_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    self.response.write(rec_template.render(recommend_list))
+
+class QuizHandler(webapp2.RequestHandler):
+  def get(self):
+    quiz_template = jinja_current_directory.get_template("pages/survey.html")
+    self.response.write(quiz_template.render())
+
+  def get(self):
+    quiz_template=jinja_current_directory.get_template("pages/survey.html")
+    self.response.write(quiz_template.render())
+
+  def post(self):
+    quiz_list= self.request.get('name')
+    survey_template=jinja_current_directory.get_template("pages/survey.html")
+    self.response.write(survey_template.render(quiz_list))
+
+  def post(self):
+    start_list= self.request.get('books')
+    mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    self.response.write(mend_template.render(start_list))
+
+=======
+<<<<<<< HEAD
   def get(self):# for a get request
     login_template= jinja_current_directory.get_template("pages/loginPage.html")
     self.response.write(login_template.render())
@@ -125,10 +177,24 @@ class QuizHandler(webapp2.RequestHandler):
 		survey_template=jinja_current_directory.get_template("pages/survey.html")
 		self.response.write(survey_template.render(quiz_list))
 
+<<<<<<< HEAD
+  	def post(self):
+   		start_list= self.request.get('books')
+    	mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    	self.response.write(mend_template.render(start_list))
+
+  	def post(self):
+  		quiz_list = self.request.get('name')
+  		survey_template = jinja_current_directory.get_template("pages/survey.html")	
+  		self.response.write(survey_template.render(quiz_list))
+>>>>>>> 59daebde6cf0c1901244533b0d058c54f4da0d3e
+>>>>>>> bc7078f834ce393ef01d3fbbb3f5fa49229bf448
+=======
   	#def post(self):
    		#start_list= self.request.get('books')
     	#mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
     	#self.response.write(mend_template.render(start_list))
+>>>>>>> d17c74d050b087f4a34bf5c5375668026eddac90
 
 class RecommendedPage(webapp2.RequestHandler):
   def get(self):
@@ -167,6 +233,32 @@ app = webapp2.WSGIApplication([
 ("/action_page.php", RecommendedPage),
 ("/library_page", LibraryPage),
 ], debug=True, config=config)
+<<<<<<< HEAD
+=======
+  ('/', MainHandler),
+  ("/new_page.php", SignupHandler),
+  ("/about", AboutUsHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/logout.html", LogoutHandler),
+  ("/new_page.php", QuizHandler),
+<<<<<<< HEAD
+  ("/library_page", LibraryPage),
+  ("/about", AboutUsHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/logout", LogoutHandler),
+=======
+  ("/action_page.php", RecommendedPage),
+  ("/library_page", LibraryPage),
+  ("/about", AboutUsHandler)
+  ("/about", AboutUsHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/logout", LogoutHandler)
+>>>>>>> bc7078f834ce393ef01d3fbbb3f5fa49229bf448
+  #('/about', AboutUsHandler),
+  ], debug=True, config=config)
+>>>>>>> 59daebde6cf0c1901244533b0d058c54f4da0d3e
+=======
 
+>>>>>>> d17c74d050b087f4a34bf5c5375668026eddac90
 
 

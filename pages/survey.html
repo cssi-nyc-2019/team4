@@ -3,8 +3,8 @@
 <head>
 
    
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="survey.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/survey.css">
+  
 	
 	
 </head>
@@ -13,106 +13,23 @@
 <div class="header">
     <div>
 
-      <!--<img class="logo" src="http://www.scalsys.com/cliparts/book-stack-clipart/book-stack-clipart_114110.jpg"></div>
+     
+      <img src="https://www.adazing.com/wp-content/uploads/2019/02/stacked-book-clipart-02-300x300.png"></div>
 
-      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/BuzzFeed.svg/1280px-BuzzFeed.svg.png"></div>
-
-    <div>
-      <a href= "https://www.buzzfeednews.com/">News</a>
-    </div>
-    <div>
-      <a href= "https://www.buzzfeed.com/videos">Videos</a>
-    </div>
-    <div>
-      <a href= "https://www.buzzfeed.com/quizzes">Quizzes</a>
-    </div>
-    <div>
-      <a href= "https://www.buzzfeed.com/tasty">Tasty</a>
-    </div>
-    <div>
-      <input placeholder="Search Buzzfeed">
-    </div>
-  </div>
-  <h1>What Superhero Team Universe Are You Apart Of? Marvel? DC?</h1>
-  <p id="caption"> Both Teams Are Awesome. Find Out Which One You Belong To! </p>
   
-  
-  <img class="battle" src="https://pre00.deviantart.net/7e10/th/pre/i/2015/223/b/0/marvel_vs_dc_poster_by_deffectx-d95a5a8.jpg">-->
-
-<div class="container">
+ 
   <script>// <![CDATA[
-/************************************************************************************
 
-  This is how you enter the weights for each possible question / answer / result:
 
-  q: question #
-  a: answer #
-  r: result #
-  
-  for example, q1a2r3 determines how r3's score is affected if a2 is picked for q1
-
-var weights = [
-  [[q1a1r1, q1a1r2, q1a1r3, ... q1a1r?], [q1a2r1, q1a2r2, ...], [q1a?s1, ...]],
-  [[q2a1r1, q2a1r2, ...], [q2a2r1, ...], [q2a?r1, ...]],
-  ...
-  [[q?a1r1, q?a1r2, ...], [q?a2r1, ...], [q?a?r1, ...]]
-]
-
-*************************************************************************************/
-
-/****************
-WEIGHTS GO BELOW
-*****************/
-
-var weights = [
-  // Question 1
-  [[10, 8, 2, 10, -6], [6, 10, 2, -6, -3], [1, 9, -4, 6, 6], [4, -2, 8, 2, -3], [-7, -4, 10, -10, -10]],
-  
-  // Question 2
-  [[-6, 10, -9, -7, 2], [-2, 5, -5, -5, 10], [-10, 10, -7, 3, 4], [6, -9, 10, 10, -9]],
-
-  // Question 3
-  [[-2, 10, -10, 10, 6], [6, -2, 10, -6, 9], [10, -6, 8, 2, -10], [3, -1, 6, 10, -7], [-8, -4, 5, 3, 1]],
-  
-  // Question 4
-  [[10, 3, -9, -7, 2], [-2, 7, 10, 10, 3], [5, 5, 3, 10, 4], [10, 10, 8, -10, -10]],
-
-  // Question 5
-  [[10, 10, -9, -7, 2], [2, 3, -5, 10, 5], [6, 5, 7, -10, 4], [-9, -2, 10, -3, -5]],
-  
-  // Question 6
-  [[10, -10, -10, 9, -6], [6, -2, 10, -6, 3], [7, -6, 8, 2, -10], [3, -1, 6, 10, -7], [-8, -4, 5, 3, 10]],
-
-  // Question 7
-  [[-6, 10, -9, -7, 2], [-2, 3, -5, -5, 6], [10, 5, 7, 10, 4], [-9, -2, -8, -10, -10]],
-  
-  // Question 8
-  [[10, 8, -9, 7, 2], [-2, 10, -5, -5, 7], [6, 5, 7, -10, 4], [-9, -2, -8, 6, -10]],
-
-  // Question 9
-  [[-2, 10, -10, 2, 6], [6, -2, 10, -6, 3], [10, -6, 8, 2, -10], [3, -1, 6, 10, -7], [-8, -4, 5, 3, 10]],
-  
-  // Question 10
-  [[-6, 3, 10, 6, 2], [-2, 8, -5, -5, 3], [10, 5, -7, 10, 7], [9, 2, -8, 10, 3]]
-]
-
-/*
-  If you want to see all of the possible results at the same time,
-  (to help you edit your page) modify the following to be:
-  var always_show = true
-  
-  To make the page work properly, it should be:
-  var always_show = false
-*/
-
-var always_show = false
+//var always_show = false
 // ]]></script>
 <h2>Welcome {{username}} !</h2>
 <h1 heading>Answer the Questions Below So We Can Figure Out What Genres You Like, and See What Books We Recommend:</h1>
+<caption> Please Try to Answer ALL of the Questions, So That We Can See What Genres You Prefer</caption>
 <ol><!------------------
 QUESTIONS GO BELOW
 ----------------------> <!--Question 1-->
-  <li><h2>What is Your All Time Favorite Genre of Books?</h2>  
+  <li><h3>What is Your All Time Favorite Genre of Books?</h3>  
     <label class="choice"><input type="radio" name="q1" value="a1" />Adventure/Action</label> <br> 
     <label class="choice"><input type="radio" name="q1" value="a2" />Romance</label> <br> 
     <label class="choice"><input type="radio" name="q1" value="a3" />Mystery/Horror/Suspense</label> <br> 
@@ -130,7 +47,7 @@ QUESTIONS GO BELOW
   </li>
 
 <!--Question 2-->
-  <li><h2>What is Your Second Favorite Genre of Books?</h2>  
+  <li><h3>What is Your Second Favorite Genre of Books?</h3>  
     <label class="choice"><input type="radio" name="q2" value="a1" />Adventure/Action</label> <br>
     <label class="choice"><input type="radio" name="q2" value="a2" />Romance</label> <br>
     <label class="choice"><input type="radio" name="q2" value="a3" />Mystery/Horror/Suspense</label> <br>
@@ -148,7 +65,7 @@ QUESTIONS GO BELOW
   </li> 
 
 <!--Question 3-->
-  <li><h2>What is Your Third Favorite Genre of Books?</h2>  
+  <li><h3>What is Your Third Favorite Genre of Books?</h3>  
     <label class="choice"><input type="radio" name="q3" value="a1" />Adventure/Action</label> <br>
     <label class="choice"><input type="radio" name="q3" value="a2" />Romance</label> <br>
     <label class="choice"><input type="radio" name="q3" value="a3" />Mystery/Horror/Suspense</label> <br>
@@ -166,7 +83,7 @@ QUESTIONS GO BELOW
   </li> 
 
 <!--Question 4--></li>
-  <li><h2>What is Your Fourth Favorite Genre of Books?</h2>  
+  <li><h3>What is Your Fourth Favorite Genre of Books?</h3>  
     <label class="choice"><input type="radio" name="q4" value="a1" />Adventure/Action</label> <br>
     <label class="choice"><input type="radio" name="q4" value="a2" />Romance</label> <br>
     <label class="choice"><input type="radio" name="q4" value="a3" />Mystery/Horror/Suspense</label> <br>
@@ -184,7 +101,7 @@ QUESTIONS GO BELOW
   </li> 
 
 <!--Question 5--></li>
-  <li><h2>What is Your Fifth Favorite Genre of Books?</h2>  
+  <li><h3>What is Your Fifth Favorite Genre of Books?</h3>  
     <label class="choice"><input type="radio" name="q5" value="a1" />Adventure/Action</label> <br>
     <label class="choice"><input type="radio" name="q5" value="a2" />Romance</label> <br>
     <label class="choice"><input type="radio" name="q5" value="a3" />Mystery/Horror/Suspense</label> <br>
@@ -202,6 +119,8 @@ QUESTIONS GO BELOW
   </li> 
 </ol>
 
+<<<<<<< HEAD
+=======
 <p><!--Submit Button 
 <button class="button" type="button" onclick="select()">Click Here to See What Books We Recommend You To Read</button></p>
 <<p><-------------
@@ -232,16 +151,13 @@ RESULTS GO BELOW
 <p>You are Team DC!!! You fight alongside Batman, Superman, Wonder Woman, and Cyborg. You have great potential and can do a lot to save the World from Super Villains with your awesome superpowers. You want the best for the world, and will do anything in your power to accopmplish that.</p>
 <p><img class="centerimg" src="https://vignette.wikia.nocookie.net/superheroes/images/a/ad/DC_Characters.jpg/revision/latest?cb=20140719022313" /></p>
 </div>-->
+>>>>>>> d17c74d050b087f4a34bf5c5375668026eddac90
 
 
 <p><!--Submit Button--> 
-  <button type="button" id="books" onclick="document.getElementById('id03').style.display='none'" class="aboutbtn"><a href=/action_page.php>See some recommended books to start your libary </a></button>
+  <button type="button" id="books" onclick="document.getElementById('id03').style.display='none'" class="aboutbtn"><a href=/action_page.php>Click Here to See What Books We Recommend You To Read</a></button>
 
 
-
- 
-<p>
-
-</p>
+  <script src="survey.js"></script>
 </body>
 </html>
