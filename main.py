@@ -59,6 +59,7 @@ class SignupHandler(BaseHandler):
     variable_dict = {"username": username}
     self.response.write(signup_template.render(variable_dict))
 
+'''
   def post(self):
     signup_template = jinja_current_directory.get_template('pages/survey.html')
     username = self.request.get('username')
@@ -70,7 +71,7 @@ class SignupHandler(BaseHandler):
     login(self, username)
     variable_dict = {"username": username}
     self.response.write(signup_template.render(variable_dict))
-
+'''
 
 class LogoutHandler(BaseHandler):
   def get(self):  # for a get request
