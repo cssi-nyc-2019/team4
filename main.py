@@ -31,6 +31,8 @@ def isLoggedIn(self):
   else:
     return False
 
+
+
 class BaseHandler(webapp2.RequestHandler):
   def dispatch(self):
     # Get a session store for this request.
@@ -88,6 +90,7 @@ class LogoutHandler(BaseHandler):
 
 # the handler section
 class MainHandler(webapp2.RequestHandler):
+<<<<<<< HEAD
   def get(self):# for a get request
     login_template= jinja_current_directory.get_template("pages/loginPage.html")
     self.response.write(login_template.render())
@@ -112,6 +115,50 @@ class QuizHandler(webapp2.RequestHandler):
   #  start_list= self.request.get('books')
   #  mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
   #  self.response.write(mend_template.render(start_list))
+=======
+
+	def get(self):# for a get request
+		login_template = jinja_current_directory.get_template("pages/loginPage.html")
+		self.response.write(login_template.render())
+
+	def get(self):
+		login_template = jinja_current_directory.get_template("pages/loginPage.html")
+		self.response.write(login_template.render())
+
+	def post(self):
+		recommend_list = self.request.get('uname')
+		rec_template = jinja_current_directory.get_template("pages/recommendedPage.html")
+		self.response.write(rec_template.render(recommend_list))
+
+  	def post(self):
+  		recommend_list = self.request.get('uname')
+    	rec_template = jinja_current_directory.get_template("pages/recommendedPage.html")
+    	self.response.write(rec_template.render(recommend_list))
+
+class QuizHandler(webapp2.RequestHandler):
+	def get(self):
+  		quiz_template = jinja_current_directory.get_template("pages/survey.html")
+  		self.response.write(quiz_template.render())
+
+  	def get(self):
+		quiz_template=jinja_current_directory.get_template("pages/survey.html")
+    	self.response.write(quiz_template.render())
+	
+	def post(self):
+		quiz_list= self.request.get('name')
+		survey_template=jinja_current_directory.get_template("pages/survey.html")
+		self.response.write(survey_template.render(quiz_list))
+
+  	def post(self):
+   		start_list= self.request.get('books')
+    	mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
+    	self.response.write(mend_template.render(start_list))
+
+  	def post(self):
+  		quiz_list = self.request.get('name')
+  		survey_template = jinja_current_directory.get_template("pages/survey.html")	
+  		self.response.write(survey_template.render(quiz_list))
+>>>>>>> 59daebde6cf0c1901244533b0d058c54f4da0d3e
 
 class RecommendedPage(webapp2.RequestHandler):
   def get(self):
@@ -141,6 +188,7 @@ config['webapp2_extras.sessions'] = {
 
 # the app configuration section	
 app = webapp2.WSGIApplication([
+<<<<<<< HEAD
 ('/', MainHandler),
 
 ("/new_page.php", SignupHandler),
@@ -151,5 +199,21 @@ app = webapp2.WSGIApplication([
 ("/action_page.php", RecommendedPage),
 ("/library_page", LibraryPage),
 ], debug=True, config=config)
+=======
+  ('/', MainHandler),
+  ("/new_page.php", SignupHandler),
+  ("/about", AboutUsHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/logout.html", LogoutHandler),
+  ("/new_page.php", QuizHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/library_page", LibraryPage),
+  ("/about", AboutUsHandler)
+  ("/about", AboutUsHandler),
+  ("/action_page.php", RecommendedPage),
+  ("/logout", LogoutHandler)
+  #('/about', AboutUsHandler),
+  ], debug=True, config=config)
+>>>>>>> 59daebde6cf0c1901244533b0d058c54f4da0d3e
 
 
