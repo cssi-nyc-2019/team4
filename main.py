@@ -105,7 +105,7 @@ class QuizHandler(webapp2.RequestHandler):
     quiz_template = jinja_current_directory.get_template("pages/survey.html")
     self.response.write(quiz_template.render())
 
-  def post(self):
+  def post(self): 
     quiz_list= self.request.get('name')
     survey_template=jinja_current_directory.get_template("pages/survey.html")
     self.response.write(survey_template.render(quiz_list))
@@ -114,21 +114,6 @@ class QuizHandler(webapp2.RequestHandler):
   #  start_list= self.request.get('books')
   #  mend_template=jinja_current_directory.get_template("pages/recommendedPage.html")
   #  self.response.write(mend_template.render(start_list))
-
-
-	def get(self):# for a get request
-		login_template = jinja_current_directory.get_template("pages/loginPage.html")
-		self.response.write(login_template.render())
-
-	def get(self):
-		login_template = jinja_current_directory.get_template("pages/loginPage.html")
-		self.response.write(login_template.render())
-
-	def post(self):
-		recommend_list = self.request.get('uname')
-		rec_template = jinja_current_directory.get_template("pages/recommendedPage.html")
-		self.response.write(rec_template.render(recommend_list))
-
 
 class QuizHandler(webapp2.RequestHandler):
 	def get(self):
