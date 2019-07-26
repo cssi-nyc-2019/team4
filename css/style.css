@@ -12,7 +12,7 @@ header {
 
 
 /* signup form css */
-<<<<<<< HEAD
+
 /*body {
   background-color:#cce6ff;
   float: center ;
@@ -23,7 +23,7 @@ header {
    background-color:#cce6ff;
   float: center ;
 }
-=======
+
 
 body {
   background-color: #cce6ff;
@@ -34,7 +34,7 @@ body {font-family: Arial, Helvetica, sans-serif}
 * {box-sizing: border-box;}
 
 * {box-sizing: border-box}
->>>>>>> 79c3e953a3fb8425f9820ffa0a1454bd7c2bd5bd
+
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -398,12 +398,6 @@ img {vertical-align: middle;}
   .text {font-size: 11px}
 }
 
-#books {
-  text-decoration: none
-}
-body {
-  color: #ffd1dc;
-}
 
 
 
